@@ -1,21 +1,19 @@
 <odoo>
     <template id="report_saleorder_document_custom" inherit_id="sale.report_saleorder_document">
         <!-- Customizing the quotation line table headers -->
-        <xpath expr="//table[@class='table table-sm o_main_table table-borderless']/thead/tr" position="replace">
+        <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr" position="replace">
             <tr>
                 <th>Description</th>
                 <th>Colour</th>
                 <th>Meters</th>
                 <th>Quantity</th>
                 <th>Unit Price</th>
-                <th>Discount (%)</th>
-                <th>VAT (%)</th>
                 <th>Amount</th>
             </tr>
         </xpath>
 
         <!-- Customizing the quotation line table body -->
-        <xpath expr="//table[@class='table table-sm o_main_table table-borderless']/tbody" position="replace">
+        <xpath expr="//table[@class='table table-sm o_main_table']/tbody" position="replace">
             <tbody>
                 <tr t-foreach="o.order_line" t-as="line">
                     <td>
@@ -33,12 +31,7 @@
                     <td>
                         <span t-field="line.price_unit" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/>
                     </td>
-                    <td>
-                        <span t-field="line.discount"/>%
-                    </td>
-                    <td>
-                        <span t-field="line.tax_id" t-options="{'widget': 'many2many'}"/>
-                    </td>
+        
                     <td>
                         <span t-field="line.price_total" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/>
                     </td>
