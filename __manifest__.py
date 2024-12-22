@@ -9,8 +9,8 @@
     'category': 'Sales',
     'depends': ['sale'],
     'data': [
-        'views/sale_order_views.xml',
-        'views/report_sales_template.xml',
+        'views/sales_order_views.xml',
+        'views/report_sales_order_template.xml',
     ],
     'installable': True,
     'application': False,

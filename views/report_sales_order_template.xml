@@ -1,7 +1,7 @@
 <odoo>
     <template id="report_saleorder_document_custom" inherit_id="sale.report_saleorder_document">
         <!-- Customizing the quotation line table headers -->
-        <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr" position="replace">
+        <xpath expr="//thead/tr" position="replace">
             <tr>
                 <th>Description</th>
                 <th>Colour</th>
@@ -13,9 +13,9 @@
         </xpath>
 
         <!-- Customizing the quotation line table body -->
-        <xpath expr="//table[@class='table table-sm o_main_table']/tbody" position="replace">
+        <xpath expr="//tbody" position="replace">
             <tbody>
-                <tr t-foreach="o.order_line" t-as="line">
+                <tr t-foreach="doc.order_line" t-as="line">
                     <td>
                         <span t-field="line.name"/>
                     </td>
@@ -33,7 +33,7 @@
                     </td>
         
                     <td>
-                        <span t-field="line.price_total" t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/>
+                        <span t-field="line.price_subtotal" />
                     </td>
                 </tr>
             </tbody>
